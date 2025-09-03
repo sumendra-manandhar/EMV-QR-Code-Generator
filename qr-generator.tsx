@@ -25,7 +25,7 @@ interface EMVData {
 
 export default function Component() {
   const [emvData, setEmvData] = useState<EMVData>({
-    merchantGuid: "NCHL000000024501COP-1195-APP-1",
+    merchantGuid: "NCHL00000002MER-8002-APP-1",
     merchantName: "Hari Sankar Pandey",
     merchantCity: "KATHMANDU",
     merchantCategoryCode: "4829",
@@ -100,8 +100,8 @@ export default function Component() {
 // Eg: F01D"
 
     // Field 62: Additional Data Field
-    const subfield01 = formatField("01","1234" )
-    const subfield02 = formatField("02", "984931064")
+    const subfield01 = formatField("01","12345" )
+    const subfield02 = formatField("02", "9849331064")
 
     const subfield03 = formatField("03", "store")
     const subfield04 = formatField("04", "loyalnumber")
@@ -124,6 +124,8 @@ export default function Component() {
       merchantName +
       merchantCity +
       field62
+
+
 
     // Calculate CRC
     const crc = calculateCRC(qrPayload + "6304")
