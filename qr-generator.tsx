@@ -100,16 +100,16 @@ export default function Component() {
 // Eg: F01D"
 
     // Field 62: Additional Data Field
-    const subfield01 = formatField("01","01" )
-    const subfield02 = formatField("02", "02")
+    const subfield01 = formatField("01","1234" )
+    const subfield02 = formatField("02", "984931064")
 
-    const subfield03 = formatField("03", "03")
-    const subfield04 = formatField("04", "04")
-    const subfield05 = formatField("05", "05")
-    const subfield06 = formatField("06", "06")
-    const subfield07 = formatField("07", '07')
-    const subfield08 = formatField("08", '08')
-    const subfield09 = formatField("09", '09')
+    const subfield03 = formatField("03", "store")
+    const subfield04 = formatField("04", "loyalnumber")
+    const subfield05 = formatField("05", "refno")
+    const subfield06 = formatField("06", "custlabel")
+    const subfield07 = formatField("07", 'terlabel')
+    const subfield08 = formatField("08", 'P2P')
+    const subfield09 = formatField("09", 'addinallabel')
     const field62 = formatField("62", subfield01 + subfield02 + subfield03 + subfield04 + subfield05 + subfield06 + subfield07 + subfield08 + subfield09)
 
     // Assemble QR payload (excluding CRC)
