@@ -25,8 +25,8 @@ interface EMVData {
 
 export default function Component() {
   const [emvData, setEmvData] = useState<EMVData>({
-    merchantGuid: "NCHL000000014501MER-1-APP-11",
-    merchantName: "PRAGATI GHIMIRE",
+    merchantGuid: "NCHL000000024501COP-1195-APP-1",
+    merchantName: "Hari Sankar Pandey",
     merchantCity: "KATHMANDU",
     merchantCategoryCode: "4829",
     transactionCurrency: "524",
@@ -34,7 +34,7 @@ export default function Component() {
     tipAmount: "0",
     billReference: "001011160000072",
     terminalId: "1",
-    additionalInfo: "P2P Fund Transfer",
+    additionalInfo: "Demo Transaction",
   })
 
   const [qrCodeUrl, setQrCodeUrl] = useState("")
@@ -85,12 +85,32 @@ export default function Component() {
     const merchantName = formatField("59", emvData.merchantName)
     const merchantCity = formatField("60", emvData.merchantCity)
 
+
+//     Additional Data Template			
+// 	01	Bill Number	Eg:123456789
+// 	02	Mobile Number	9851000000
+// 	03	Store Label	
+// 	04	Loyalty Number	
+// 	05	Reference Label	
+// 	06	Customer Label	9999
+// 	07	Terminal Label	00123456963210236542
+// 	08	Purpose of Transaction	P2P
+// 	09	Additional Consumer Data	
+// 04			"Calculated Check Sum
+// Eg: F01D"
+
     // Field 62: Additional Data Field
-    const subfield01 = formatField("01", emvData.billReference)
-    const subfield03 = formatField("03", emvData.terminalId)
-    const subfield07 = formatField("07", emvData.billReference)
-    const subfield08 = formatField("08", emvData.additionalInfo)
-    const field62 = formatField("62", subfield01 + subfield03 + subfield07 + subfield08)
+    const subfield01 = formatField("01","01" )
+    const subfield02 = formatField("02", "02")
+
+    const subfield03 = formatField("03", "03")
+    const subfield04 = formatField("04", "04")
+    const subfield05 = formatField("05", "05")
+    const subfield06 = formatField("06", "06")
+    const subfield07 = formatField("07", '07')
+    const subfield08 = formatField("08", '08')
+    const subfield09 = formatField("09", '09')
+    const field62 = formatField("62", subfield01 + subfield02 + subfield03 + subfield04 + subfield05 + subfield06 + subfield07 + subfield08 + subfield09)
 
     // Assemble QR payload (excluding CRC)
     const qrPayload =
